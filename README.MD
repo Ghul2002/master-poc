@@ -1,0 +1,3 @@
+# DevOps-as-a-Service u głównych dostawców chmurowych: Analiza funkcjonalności i efektywności narzędzi
+
+Repozytorium zawiera aplikację badawczą typu POC (FastAPI) wraz z definicjami potoków CI/CD przygotowanymi na potrzeby pracy magisterskiej. Projekt służy do przeprowadzenia empirycznej analizy porównawczej natywnych środowisk DevOps-as-a-Service (DaaS) oferowanych przez Amazon Web Services, Microsoft Azure oraz Google Cloud Platform. Pomiary obejmują wydajność potoków oraz jednostkowe koszty wykonania procesów weryfikacji i publikacji artefaktów.
