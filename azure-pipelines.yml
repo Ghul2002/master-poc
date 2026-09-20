@@ -1,0 +1,26 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: ubuntu-24.04
+
+variables:
+  ACR_LOGIN_SERVER: "daaspoc.azurecr.io"
+  IMAGE_REPO: "daas-poc"
+  IMAGE: "$(ACR_LOGIN_SERVER)/$(IMAGE_REPO):$(Build.BuildId)"
+
+steps:
+  - task: Docker@2
+    displayName: Logowanie do rejestru
+    inputs:
+      command: login
+      containerRegistry: "acr-daas-poc"
+
+  - script: docker build -t $(IMAGE) .
+    displayName: Budowanie obrazu
+
+  - script: docker run --rm $(IMAGE) pytest -q
+    displayName: Testy
+
+  - script: docker push $(IMAGE)
+    displayName: Publikacja
